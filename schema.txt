@@ -1,0 +1,46 @@
+company table
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int          | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100) | YES  |     | NULL    |                |
+| email      | varchar(50)  | YES  |     | NULL    |                |
+| location   | varchar(20)  | YES  |     | NULL    |                |
+| started_at | date         | YES  |     | NULL    |                |
+| username   | varchar(20)  | YES  |     | NULL    |                |
+| password   | varchar(20)  | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+user table
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| first_name | varchar(30) | YES  |     | NULL    |                |
+| last_name  | varchar(30) | YES  |     | NULL    |                |
+| gender     | varchar(20) | YES  |     | NULL    |                |
+| email      | varchar(20) | YES  |     | NULL    |                |
+| dob        | date        | YES  |     | NULL    |                |
+| username   | varchar(20) | YES  |     | NULL    |                |
+| password   | varchar(20) | YES  |     | NULL    |                |
+| status     | varchar(20) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+category table
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| category | varchar(30) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+ticket table
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(200) | YES  |     | NULL    |                |
+| description | varchar(300) | YES  |     | NULL    |                |
+| user_id     | int          | YES  | MUL | NULL    |                |
+| category_id | int          | YES  | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
