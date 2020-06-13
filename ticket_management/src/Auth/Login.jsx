@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../Redux/action'
-import { Link } from 'react-router-dom'
+import { Link , Redirect} from 'react-router-dom'
 
-class SignupUser extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
 
@@ -21,10 +21,22 @@ class SignupUser extends Component {
     }
 
     render() {
-        const { login } = this.props
+        const { login,loginData } = this.props
 
         return (
             <>
+                {
+                    loginData && loginData.status === 'user' ?
+                        <Redirect to='/userDashboard'/>
+                        :
+                        ""
+                }
+                {
+                    loginData && loginData.status === 'company' ?
+                        <Redirect to='/companyDashboard'/>
+                        :
+                        ""
+                }
                 <div className="container">
                     <h3 className="text-center m-3 text-light">Login</h3>
 
@@ -73,7 +85,8 @@ class SignupUser extends Component {
     }
 }
 const mapStateToProps = state => ({
-
+    loginData:state.loginData,
+    login:state.login
 });
 const mapDispatchToProps = dispatch => ({
     login: payload => dispatch(login(payload))
@@ -81,4 +94,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SignupUser);
+)(Login);
