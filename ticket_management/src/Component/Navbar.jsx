@@ -1,36 +1,35 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addItem } from '../Redux/actions'
 import { Link } from 'react-router-dom'
 
-class Home extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
+export default class Home extends Component {
 
     render() {
-
         return (
             <>
-                <div className="container">
-                    <nav class="navbar navbar-dark bg-dark">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Registration
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">User</a>
-                                <a class="dropdown-item" href="#">Company</a>
-                            </div>
-                        </li>
-                    </nav>
-                </div>
+                <nav className="navbar navbar-expand-sm  navbar-light" style={{ backgroundColor: "#e3f2fd" }}>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item active border-right border-dark pl-md-5 ml-md-5">
+                                <Link to='/' className="nav-link">Home </Link>
+                            </li>
+                            <li className="nav-item active border-right border-dark pl-md-5">
+                                <Link to='/about' className="nav-link" href="#">About Us</Link>
+                            </li>
+                            <li className="nav-item active border-right border-dark pl-md-5">
+                                <Link to='/signupUser' className="nav-link" href="#">User Registration</Link>
+                            </li>
+                            <li className="nav-item active border-right border-dark pl-md-5">
+                                <Link to='/signupCompany' className="nav-link" href="#">Company Registration</Link>
+                            </li>
+                            <li className="nav-item active border-right border-dark pl-md-5">
+                                <Link to='login' className="nav-link">Login</Link>
+                            </li>
+                            <li className="nav-item active pl-md-5">
+                                <Link to='/' className="nav-link" href="#">Contact Us</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </>
         )
     }

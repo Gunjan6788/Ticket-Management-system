@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addItem } from '../Redux/actions'
+import {companyRegister} from '../Redux/action'
 import { Link } from 'react-router-dom'
 
 class SignupCompany extends Component {
@@ -24,12 +24,12 @@ class SignupCompany extends Component {
     }
 
     render() {
-        const { add, addItem } = this.props
+        const { companyRegister } = this.props
 
         return (
             <>
                 <div className="container">
-                    <h3 className="text-center m-3">Enter Item</h3>
+                    <h3 className="text-center m-3 text-light">Company Registration</h3>
 
                     <div className="border row offset-3 col-md-6 p-3 bg-dark text-light rounded">
                         <div className='col-12'>
@@ -44,35 +44,35 @@ class SignupCompany extends Component {
                                 <label>Email</label>
                                 <input className="form-control"
                                     name="email"
-                                    value={this.state.item}
+                                    value={this.state.email}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-12">
                                 <label>Location</label>
                                 <input className="form-control"
                                     name="location"
-                                    value={this.state.price}
+                                    value={this.state.location}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-12">
                                 <label>Start Date</label>
                                 <input className="form-control"
                                     name="started_at"
-                                    value={this.state.quantity}
+                                    value={this.state.started_at}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-12">
                                 <label>Username</label>
                                 <input className="form-control"
                                     name="username"
-                                    value={this.state.quantity}
+                                    value={this.state.username}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-12">
                                 <label>Password</label>
                                 <input className="form-control"
                                     name="password"
-                                    value={this.state.quantity}
+                                    value={this.state.password}
                                     onChange={this.handleChange} />
                             </div>
                         </div>
@@ -80,10 +80,10 @@ class SignupCompany extends Component {
                         <button className="btn btn-info ml-5 mt-3"
                             onClick={(e) => {
                                 e.preventDefault()
-                                addItem(this.state)
+                                companyRegister(this.state)
                             }}
                         >
-                            Add Details
+                           Register
                         </button>
                     </div>
                 </div>
@@ -92,10 +92,10 @@ class SignupCompany extends Component {
     }
 }
 const mapStateToProps = state => ({
-    add: state.add,
+
 });
 const mapDispatchToProps = dispatch => ({
-    addItem: payload => dispatch(addItem(payload))
+    companyRegister:payload => dispatch(companyRegister(payload))
 });
 export default connect(
     mapStateToProps,

@@ -1,0 +1,3 @@
+export const USER_REGISTER = 'USER_REGISTER'
+export const COMPANY_REGISTER = 'COMPANY_REGISTER'
+export const LOGIN = 'LOGIN'
