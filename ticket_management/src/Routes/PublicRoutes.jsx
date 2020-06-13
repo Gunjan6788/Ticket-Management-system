@@ -8,6 +8,7 @@ import Login from '../Auth/Login'
 import UserDashboard from '../Component/userdashboard'
 import CompanyDashboard from '../Component/CompanyDashboard'
 import AddTicket from '../Component/AddTicket'
+import TicketReport from '../Component/TicketReport'
 
 export default function () {
     return (
@@ -21,7 +22,7 @@ export default function () {
                 <Route path='/userDashboard' component={UserDashboard} />
                 <Route path='/CompanyDashboard' component={CompanyDashboard} />
                 <Route path='/addTicket' component={AddTicket} />
-                <Route path='/ticketReport' component={UserDashboard} />
+                <Route path='/ticketReport' component={TicketReport} />
                 <Route path='/userAccount' component={UserDashboard} />
                 <Route path='/userPassword' component={UserDashboard} />
                 <Route path='/logout' component={UserDashboard} />

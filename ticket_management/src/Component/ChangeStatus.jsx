@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { login } from '../Redux/action'
-import { Redirect} from 'react-router-dom'
 
-class Login extends Component {
+class ChnageStatus extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            username: '',
-            password: '',
-            status: ''
+
         }
     }
 
@@ -21,51 +17,52 @@ class Login extends Component {
     }
 
     render() {
-        const { login,loginData } = this.props
 
         return (
             <>
-                {
-                    loginData && loginData.status === 'user' ?
-                        <Redirect to='/userDashboard'/>
-                        :
-                        ""
-                }
-                {
-                    loginData && loginData.status === 'company' ?
-                        <Redirect to='/companyDashboard'/>
-                        :
-                        ""
-                }
                 <div className="container">
-                    <h3 className="text-center m-3 text-light">Login</h3>
+                    <h3 className="text-center m-3 text-light">Add Ticket</h3>
 
                     <div className="border row offset-3 col-md-6 p-3 bg-dark text-light rounded">
                         <div className='col-12'>
                             <div className="form-group col-12">
-                                <label>Username</label>
+                                <label>Title</label>
                                 <input className="form-control"
-                                    name="username"
-                                    value={this.state.username}
+                                    name="title"
+                                    value={this.state.title}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-12">
-                                <label>Password</label>
+                                <label>description</label>
                                 <input className="form-control"
-                                    name="password"
-                                    value={this.state.password}
+                                    name="description"
+                                    value={this.state.description}
                                     onChange={this.handleChange} />
                             </div>
                             <div className="form-group col-md-4">
-                                <label >Select Status</label>
+                                <label >Company</label>
                                 <select className="form-control"
-                                    name="status"
+                                    name="company"
                                     value={this.state.day}
                                     onChange={this.handleChange}
                                 >
-                                    <option >Choose Status</option>
-                                    <option value="company">Company</option>
-                                    <option value="user">User</option>
+                                    <option >company</option>
+                                    <option value="Bosh">Bosh</option>
+                                    <option value="Tach Sbm">Tach Sbm</option>
+                                    <option value="MHT">MHT</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-md-4">
+                                <label >category</label>
+                                <select className="form-control"
+                                    name="category"
+                                    value={this.state.category}
+                                    onChange={this.handleChange}
+                                >
+                                    <option >Category</option>
+                                    <option value="hardware">Hardware</option>
+                                    <option value="software">Software</option>
+                                    <option value="application">Application</option>
                                 </select>
                             </div>
                         </div>
@@ -73,10 +70,10 @@ class Login extends Component {
                         <button className="btn btn-info ml-5 mt-3"
                             onClick={(e) => {
                                 e.preventDefault()
-                                login(this.state)
+                                addTicket(this.state)
                             }}
                         >
-                            Login
+                            Add Ticket
                         </button>
                     </div>
                 </div>
@@ -85,13 +82,12 @@ class Login extends Component {
     }
 }
 const mapStateToProps = state => ({
-    loginData:state.loginData,
-    login:state.login
+    loginData:state.loginData
 });
 const mapDispatchToProps = dispatch => ({
-    login: payload => dispatch(login(payload))
+    addTicket: payload => dispatch(addTicket(payload))
 });
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(ChnageStatus);
