@@ -16,7 +16,7 @@ export const userRegister = payload => dispatch => {
 
     axios.post('http://127.0.0.1:5000/user_register',payload)
     .then(res => res.data)
-    .then(res => console.log(res))
+    .then(res => dispatch(userRegisterSuccess(res)))
 }
 
 //// register company ///////////
@@ -30,7 +30,7 @@ export const companyRegister = payload => dispatch => {
 
     axios.post('http://127.0.0.1:5000/company_register',payload)
     .then(res => res.data)
-    .then(res => console.log(res))
+    .then(res => dispatch(companyRegisterSuccess(res)))
 }
 
 ///// login user or company //////////
@@ -45,5 +45,5 @@ export const login = payload => dispatch => {
 
     axios.post('http://127.0.0.1:5000/login',payload)
     .then(res => res.data)
-    .then(res => console.log(res))
+    .then(res => dispatch(loginSuccess(res)))
 }
