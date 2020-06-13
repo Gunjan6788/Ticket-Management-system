@@ -25,13 +25,6 @@ user table
 | password   | varchar(20) | YES  |     | NULL    |                |
 +------------+-------------+------+-----+---------+----------------+
 
-category table
-+----------+-------------+------+-----+---------+----------------+
-| Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
-| id       | int         | NO   | PRI | NULL    | auto_increment |
-| category | varchar(30) | YES  |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
 
 ticket table
 +-------------+--------------+------+-----+---------+----------------+
@@ -41,5 +34,7 @@ ticket table
 | title       | varchar(200) | YES  |     | NULL    |                |
 | description | varchar(300) | YES  |     | NULL    |                |
 | user_id     | int          | YES  | MUL | NULL    |                |
-| category_id | int          | YES  | MUL | NULL    |                |
+| category    | varchar(20)  | YES  |     | NULL    |                |
+| company_id  | int          | YES  | MUL | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
+
