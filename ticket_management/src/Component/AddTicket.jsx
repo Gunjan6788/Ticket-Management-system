@@ -11,7 +11,8 @@ class AddTicket extends Component {
             title: '',
             description: '',
             company: '',
-            category:''
+            category:'',
+            user_id:this.props.loginData.id
         }
     }
 
@@ -22,7 +23,7 @@ class AddTicket extends Component {
     }
 
     render() {
-        const { login,loginData } = this.props
+        const { addTicket } = this.props
 
         return (
             <>
@@ -76,10 +77,10 @@ class AddTicket extends Component {
                         <button className="btn btn-info ml-5 mt-3"
                             onClick={(e) => {
                                 e.preventDefault()
-                                login(this.state)
+                                addTicket(this.state)
                             }}
                         >
-                            Login
+                            Add Ticket
                         </button>
                     </div>
                 </div>
@@ -88,7 +89,7 @@ class AddTicket extends Component {
     }
 }
 const mapStateToProps = state => ({
-
+    loginData:state.loginData
 });
 const mapDispatchToProps = dispatch => ({
     addTicket: payload => dispatch(addTicket(payload))
