@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {companyRegister} from '../Redux/action'
-import { Link } from 'react-router-dom'
+import { companyRegister } from '../Redux/action'
+import { Link, Redirect } from 'react-router-dom'
 
 class SignupCompany extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class SignupCompany extends Component {
             email: '',
             location: '',
             started_at: '',
-            username:'',
+            username: '',
             password: '',
         }
     }
@@ -24,10 +24,11 @@ class SignupCompany extends Component {
     }
 
     render() {
-        const { companyRegister } = this.props
+        const { companyRegister, companySignup } = this.props
 
         return (
             <>
+                {companySignup ? <Redirect to='/login' /> : ""}
                 <div className="container">
                     <h3 className="text-center m-3 text-light">Company Registration</h3>
 
@@ -83,7 +84,7 @@ class SignupCompany extends Component {
                                 companyRegister(this.state)
                             }}
                         >
-                           Register
+                            Register
                         </button>
                     </div>
                 </div>
@@ -92,10 +93,10 @@ class SignupCompany extends Component {
     }
 }
 const mapStateToProps = state => ({
-
+    companySignup: state.companySignup
 });
 const mapDispatchToProps = dispatch => ({
-    companyRegister:payload => dispatch(companyRegister(payload))
+    companyRegister: payload => dispatch(companyRegister(payload))
 });
 export default connect(
     mapStateToProps,
