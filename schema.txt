@@ -23,7 +23,6 @@ user table
 | dob        | date        | YES  |     | NULL    |                |
 | username   | varchar(20) | YES  |     | NULL    |                |
 | password   | varchar(20) | YES  |     | NULL    |                |
-| status     | varchar(20) | YES  |     | NULL    |                |
 +------------+-------------+------+-----+---------+----------------+
 
 category table
