@@ -15,7 +15,6 @@ CREATE TABLE user(id INT NOT NULL AUTO_INCREMENT,
     -> email VARCHAR(20),
     -> dob DATE,
     -> username VARCHAR(20),
-    -> status VARCHAR(20)
     -> password VARCHAR(20),
     -> PRIMARY KEY(id));
 
