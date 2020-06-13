@@ -1,14 +1,16 @@
 import {
     USER_REGISTER,
     COMPANY_REGISTER,
-    LOGIN
+    LOGIN,
+    ADD_TICKET
 } from './actionTypes'
 
 export const initState = {
     data: [],
     userSignup: false,
     companySignup: false,
-    loginData: []
+    loginData: [],
+    login:false
 }
 
 export default (state = initState, { type, payload }) => {
@@ -27,9 +29,11 @@ export default (state = initState, { type, payload }) => {
                 companySignup: true,
             }
         case LOGIN:
+            alert(payload.message)
             return {
                 ...state,
-                loginData: payload
+                loginData: payload,
+                login:true
             }
         default:
             return state

@@ -1,7 +1,8 @@
 import {
     USER_REGISTER,
     COMPANY_REGISTER,
-    LOGIN
+    LOGIN,
+    ADD_TICKET
 } from './actionTypes'
 import axios from 'axios'
 
@@ -46,4 +47,18 @@ export const login = payload => dispatch => {
     axios.post('http://127.0.0.1:5000/login',payload)
     .then(res => res.data)
     .then(res => dispatch(loginSuccess(res)))
+}
+
+//// add Ticket /////////
+export const addTicketSuccess = payload =>({
+    type:ADD_TICKET,
+    payload
+})
+
+export const addTicket = payload => dispatch => {
+    console.log(payload)
+
+    axios.post('http://127.0.0.1:5000/add_ticket',payload)
+    .then(res => res.data)
+    .then(res => dispatch(addTicketSuccess(res)))
 }
